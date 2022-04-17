@@ -1,15 +1,16 @@
-version: '3.8'
+version: '3.4'
 
 services:
   db:
-    container_name: db
+    container_name: ${DB_HOST}
     image: postgres:12
     restart: always
     environment:
-        POSTGRES_PASSWORD: password
-        POSTGRES_DB: dbtest
+        POSTGRES_PASSWORD: ${DB_PASS}
+        POSTGRES_DB: ${DB_NAME}
+        POSTGRES_USER: ${DB_USER}
     ports:
-        - 15432:5432
+        - "15432:5432"
 
   php-fpm:
     container_name: php-fpm
