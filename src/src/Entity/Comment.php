@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Comment
 {
     #[ORM\Id]
@@ -14,12 +16,16 @@ class Comment
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $author;
 
+    #[Assert\NotBlank]
     #[ORM\Column(type: 'text')]
     private $text;
 
+    #[Assert\NotBlank]
+    #[Assert\Email]
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 

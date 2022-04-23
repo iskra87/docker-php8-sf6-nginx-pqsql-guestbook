@@ -12,6 +12,10 @@ RUN apt-get update && \
     docker-php-ext-enable apcu pdo_pgsql sodium && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' |  tee /etc/apt/sources.list.d/symfony-cli.list && \
+    apt update && \
+    apt install symfony-cli
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www

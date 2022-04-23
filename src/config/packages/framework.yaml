@@ -7,7 +7,7 @@ framework:
     # Enables session support. Note that the session will ONLY be started if you read or write from it.
     # Remove or comment this section to explicitly disable session support.
     session:
-        handler_id: 'postgresql://%env(DB_USER)%:%env(DB_PASS)%@%env(DB_HOST)%:%env(DB_PORT)%/%env(DB_NAME)%?serverVersion=%env(DB_SV)%&charset=utf8'
+        handler_id: '%env(DATABASE_URL)%'
         cookie_secure: auto
         cookie_samesite: lax
         storage_factory_id: session.storage.factory.native
