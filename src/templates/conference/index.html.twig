@@ -6,6 +6,7 @@
     <h2>{{ greet }} Give your feedback!</h2>
 
     {% for conference in conferences %}
-        <h4><a href="{{ path('conference', { slug: conference.slug}) }}">{{conference.city}} {{conference.year}}</a></h4>
+        <h4> {{conference.city}} {{conference.year}}</h4>
+        <a href="{{ path('conference', { slug: conference.slug}) }}">View</a>
     {% endfor %}
 {% endblock %}
