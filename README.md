@@ -16,3 +16,7 @@ To hash admin password
 ```bash
 src$  docker exec -i --env-file=.env.local php-fpm symfony console security:hash-password
 ```
+To run Symfony messages and emails
+```bash
+cd src/ && docker exec -i --env-file=.env.local php-fpm symfony run -d --watch=config,src,templates,vendor symfony console messenger:consume async
+```
