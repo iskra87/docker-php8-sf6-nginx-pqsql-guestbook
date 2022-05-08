@@ -20,6 +20,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             string $photoDir: "%kernel.project_dir%/public/uploads/photos"
+            string $telegramChannel: "%env(TELEGRAM_CHANNEL)%"
             string $adminEmail: "%env(string:default:default_admin_email:ADMIN_EMAIL)%"
             int $maxWidth: '%env(default:default_width:MAX_WIDTH)%'
             int $maxHeight: '%env(default:default_height:MAX_HEIGHT)%'

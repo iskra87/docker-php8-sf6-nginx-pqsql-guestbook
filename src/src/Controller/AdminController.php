@@ -47,7 +47,7 @@ class AdminController extends AbstractController
         $this->entityManager->flush();
 
         if ($accepted) {
-            $this->bus->dispatch(new CommentMessage($comment->getId()));
+            $this->bus->dispatch(new CommentMessage($comment->getId(),''));
         }
 
         return new Response($this->twig->render('admin/review.html.twig', [

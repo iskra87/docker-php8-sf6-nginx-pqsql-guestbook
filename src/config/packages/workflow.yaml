@@ -41,5 +41,5 @@ framework:
           from: ham
           to:   rejected
         optimize:
-            from: ready
-            to: published
+          from: ready
+          to: published
